@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Log;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index() : JsonResponse
     {
-        $projects = Project::get();
+        $projects = Project::all();
         return response()->json($projects);
     }
 
