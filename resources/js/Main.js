@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import ProjectList from "./pages/ProjectList"
@@ -22,6 +22,9 @@ function Main() {
 
 export default Main;
 
-if (document.getElementById('app')) {
-    ReactDOM.render(<Main/>, document.getElementById('app'));
+const rootElement = document.getElementById("app");
+
+if (rootElement) {
+    const root = createRoot(rootElement)
+    root.render(<Main />);
 }
